@@ -1,14 +1,18 @@
 import {React} from 'react'
-import {SafeAreaView,View,Text} from 'react-native'
-import { UserName } from '../styles/feedStyles'
-
+import {FlatList} from 'react-native'
+import {Container} from '../styles/feedStyles.js'
+import ListSectionFeedCard from '../components/feed_card'
+import Posts from '../dataSource/feed-data.js'
 
 export default function WorldFeed(){
     return (
-    <SafeAreaView>
-            <UserName>
-                Hello from World Feed
-            </UserName>
-    </SafeAreaView>
+        <Container>
+            <FlatList
+            data = {Posts}
+            renderItem={({item})=> <ListSectionFeedCard item={item}/>}
+            keyExtractor={item=>item.id}
+            showsVerticalScrollIndicator={false}
+            />
+        </Container>
     )
 }
