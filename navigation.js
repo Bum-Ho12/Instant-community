@@ -14,6 +14,9 @@ import {AccountImg } from './styles/home-feed-styles'
 import PostScreen from './screens/post-screen';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { PostText } from './styles/addPost-style';
+import OnboardingScreen from './screens/onboardingScreen';
+import LoginScreen from './screens/auth/login';
+import SignUpScreen from './screens/auth/sign-up';
 
 const Tab = createBottomTabNavigator()
 
@@ -62,6 +65,13 @@ function HomeStackGroup(){
         <Stack.Navigator
         screenOptions={{ headerShown:true }}
         >
+            <Stack.Screen name='Onboarding'
+            component={OnboardingScreen}
+            options={{
+                headerTitle:''
+            }}/>
+            <Stack.Screen name='Login' component={LoginScreen}/>
+            <Stack.Screen name='SignUp' component={SignUpScreen}/>
             <Stack.Screen name='Instant-community'
             component={BottomTabs}
             options={{
