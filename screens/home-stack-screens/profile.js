@@ -1,8 +1,8 @@
 import React from 'react'
 import {Image,Text,View,StyleSheet,SafeAreaView,ScrollView,TouchableOpacity,FlatList} from 'react-native'
-import {Container} from '../styles/feedStyles.js'
-import ListSectionFeedCard from '../components/feed_card'
-import Posts from '../dataSource/feed-data.js'
+import {Container} from '../../styles/feedStyles.js'
+import ListSectionFeedCard from '../../components/feed_card.js'
+import Posts from '../../dataSource/feed-data.js'
 
 const ProfileScreen= ({navigation,route})=>{
 

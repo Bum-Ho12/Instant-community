@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
-import { Container,UserInfo } from '../styles/profile-edit'
-import UserFormInput from '../components/user-profile-form-input'
+import { Container,UserInfo } from '../../styles/profile-edit'
+import UserFormInput from '../../components/user-profile-form-input'
 import { ScrollView } from 'react-native'
 
 const EditProfileScreen = () =>{
@@ -12,7 +12,7 @@ const EditProfileScreen = () =>{
         <ScrollView showsVerticalScrollIndicator={false}>
             <Container>
                 <UserFormInput
-                    title={'First Name'}
+                    title={'First Name*'}
                     labelValue={fname}
                     placeholder='First Name'
                     onChangedText = {(value) => setFname(value)}
@@ -20,7 +20,7 @@ const EditProfileScreen = () =>{
                     autoCorrect = {true}
                     />
                 <UserFormInput
-                    title={'Last Name'}
+                    title={'Last Name*'}
                     labelValue={lname}
                     placeholder='Last Name'
                     onChangedText = {(value) => setLname(value)}
@@ -28,9 +28,9 @@ const EditProfileScreen = () =>{
                     autoCorrect = {true}
                     />
                 <UserFormInput
-                    title={'Nick Name'}
-                    labelValue={'@'+ tagname}
-                    placeholder='Tag Name'
+                    title={'Tag Name'}
+                    labelValue={tagname}
+                    placeholder='@Tag Name'
                     onChangedText = {(value) => setTagname(value)}
                     autoCapitalize = 'none'
                     autoCorrect = {false}

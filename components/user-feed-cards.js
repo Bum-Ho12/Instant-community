@@ -69,8 +69,14 @@ const UserListSectionFeedCard=({item, navigation})=>{
                         </UserInfoText>
                     </UserInfo>
                 </TouchableOpacity>
-                <PostText>{item.post}</PostText>
-                {item.postImg!=='none'?<PostImg source={item.postImg}/>:<Divider/>}
+                <TouchableOpacity onPress={()=>{navigation.navigate('PostView',{item:item})}}>
+                    <PostText>{item.post}</PostText>
+                    {item.postImg!=='none'?<TouchableOpacity
+                    onPress={()=> navigation.navigate('MediaView',{item:item})}
+                    >
+                        <PostImg source={item.postImg}/>
+                    </TouchableOpacity>:<Divider/>}
+                </TouchableOpacity>
                 <InteractionWrapper>
                     <Interaction active={item.liked}>
                         <Ionicons name={likeIcon} size={22} color={lickedColor} />

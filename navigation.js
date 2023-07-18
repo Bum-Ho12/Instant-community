@@ -11,15 +11,17 @@ import {View,StyleSheet} from 'react-native'
 import WorldFeed from './screens/world';
 import SearchFilterScreen from './screens/search_filter';
 import {AccountImg } from './styles/home-feed-styles'
-import PostScreen from './screens/post-screen';
+import PostScreen from './screens/home-stack-screens/post-screen';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { PostText } from './styles/addPost-style';
 import OnboardingScreen from './screens/onboardingScreen';
 import LoginScreen from './screens/auth/login';
 import SignUpScreen from './screens/auth/sign-up';
-import ProfileScreen from './screens/profile';
-import UserProfileScreen from './screens/user-profile';
-import EditProfileScreen from './screens/edit-profile';
+import ProfileScreen from './screens/home-stack-screens/profile';
+import UserProfileScreen from './screens/settings-stack-screens/user-profile';
+import EditProfileScreen from './screens/settings-stack-screens/edit-profile';
+import DocViewerScreen from './screens/home-stack-screens/document-viewer-screen';
+import PostViewScreen from './screens/home-stack-screens/post-view-screen';
 
 const Tab = createBottomTabNavigator()
 
@@ -237,6 +239,18 @@ function HomeStackGroup(){
                         </TouchableOpacity>
                         </View>
                     )
+                }}/>
+                <Stack.Screen name='MediaView'
+                component={DocViewerScreen}
+                options={{
+                    headerTitle:'',
+                    headerTitleAlign:'center',
+                }}/>
+                <Stack.Screen name='PostView'
+                component={PostViewScreen}
+                options={{
+                    headerTitle:'',
+                    headerTitleAlign:'center',
                 }}/>
         </Stack.Navigator>
     )

@@ -1,7 +1,7 @@
 import React from 'react'
 import { View,Text } from 'react-native'
 import {Ionicons} from '@expo/vector-icons';
-import { AddPostContainer, InputContainer, OtherMediaContainer, PostInputField,MediaContainer } from '../styles/addPost-style'
+import { AddPostContainer, InputContainer, OtherMediaContainer, PostInputField,MediaContainer } from '../../styles/addPost-style'
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 
 const OtherMedia = [

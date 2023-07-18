@@ -6,14 +6,18 @@ import { InfoTitle, Divider,UserInfo} from '../styles/profile-edit'
 const UserFormInput = ({title,label, placeholder,...rest}) =>{
     return(
         <View style={styles.container}>
-            
             <InfoTitle>
                 {title}
             </InfoTitle>
             <TextInput
-            style= {styles.inputField}
+            style= {[styles.inputField,
+                {height: title=='About You'?
+                    windowHeight/7:
+                    windowHeight/15,
+                }]}
                 value={label}
-                numberOfLines={1}
+                multiline = {title=='About You'?true:false}
+                numberOfLines={title=='About You'?5:1}
                 placeholderTextColor='#666'
                 placeholder={placeholder}
                 {...rest}
@@ -31,11 +35,11 @@ const styles = StyleSheet.create({
         marginTop:5,
         marginBottom: 10,
         width: '100%',
-        height: windowHeight/15,
+        flexWrap: 'wrap',
         borderColor: '#ffffff',
         borderWidth: 0,
         flexDirection: 'column',
-        backgroundColor: '#ffffff'
+        backgroundColor: '#ffffff',
     },
     text: {
         padding: 5,
@@ -47,12 +51,10 @@ const styles = StyleSheet.create({
     },
     inputField: {
         padding: 10,
-        // marginTop: 5,
-        // marginBottom: 10,
-        width: windowWidth/1.5,
+        width: windowWidth/1.1,
         height: windowHeight/15,
         fontSize: 16,
         borderRadius: 8,
         borderColor: '#fff',
-    }
+    },
 })

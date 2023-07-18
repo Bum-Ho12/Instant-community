@@ -16,7 +16,7 @@ export const InfoTitle = styled.Text`
 export const Divider = styled.View`
     border-bottom-color:#dddddd;
     border-bottom-width: 1px;
-    width:92%;
+    width:95%;
     align-self:center;
     margin-top: 5px;
 `

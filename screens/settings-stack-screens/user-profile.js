@@ -1,7 +1,7 @@
 import React from 'react'
 import {Image,Text,View,StyleSheet,SafeAreaView,ScrollView,TouchableOpacity} from 'react-native'
-import Posts from '../dataSource/feed-data.js'
-import UserListSectionFeedCard from '../components/user-feed-cards.js'
+import Posts from '../../dataSource/feed-data.js'
+import UserListSectionFeedCard from '../../components/user-feed-cards.js'
 
 const UserProfileScreen= ({navigation})=>{
     return(
@@ -17,7 +17,7 @@ const UserProfileScreen= ({navigation})=>{
             >
                 <Image
                 style={styles.userImg}
-                source={require('../assets/images/person1.jpg')}
+                source={require('../../assets/images/person1.jpg')}
                 />
                 <Text style={styles.userName}> John Doe</Text>
                 <Text style={styles.aboutUser}>

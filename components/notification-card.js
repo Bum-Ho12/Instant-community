@@ -1,5 +1,4 @@
 import {React} from 'react'
-import {Ionicons} from '@expo/vector-icons';
 import {Note,UserImg,UserInfo,UserName, UserInfoText, PostTime, PostText, PostImg, InteractionWrapper, Interaction, InteractionText, Divider, PostNickName, UserNameTag} from '../styles/notification-style.js'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
