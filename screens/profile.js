@@ -4,7 +4,8 @@ import {Container} from '../styles/feedStyles.js'
 import ListSectionFeedCard from '../components/feed_card'
 import Posts from '../dataSource/feed-data.js'
 
-const ProfileScreen= ({navigation,userItem})=>{
+const ProfileScreen= ({navigation,route})=>{
+
     return(
         <SafeAreaView
             style={{ flex:1,backgroundColor:'#fff' }}
@@ -18,9 +19,9 @@ const ProfileScreen= ({navigation,userItem})=>{
             >
                 <Image
                 style={styles.userImg}
-                source={require('../assets/images/person1.jpg')}
+                source={route.params.userItem.userImg}
                 />
-                <Text style={styles.userName}> John Doe</Text>
+                <Text style={styles.userName}> {route.params.userItem.userName}</Text>
                 <Text style={styles.aboutUser}>
                 Lorem ipsum hello world text for testing words and letters.
                 </Text>

@@ -9,7 +9,7 @@ const NotificationCard=({item,navigation})=>{
     return(
             <Note title="Local Modules">
                 <TouchableOpacity
-                onPress={()=>{navigation.navigate('Profile')}}
+                onPress={()=>{navigation.navigate('Profile',{userItem: item})}}
                 >
                     <UserInfo>
                         <UserImg source={item.userImg} />

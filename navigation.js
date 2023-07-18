@@ -19,6 +19,7 @@ import LoginScreen from './screens/auth/login';
 import SignUpScreen from './screens/auth/sign-up';
 import ProfileScreen from './screens/profile';
 import UserProfileScreen from './screens/user-profile';
+import EditProfileScreen from './screens/edit-profile';
 
 const Tab = createBottomTabNavigator()
 
@@ -202,6 +203,7 @@ function HomeStackGroup(){
             <Stack.Screen name='AddPost'
                 component={PostScreen}
                 options={{
+                    headerTitle:'Create Post',
                     headerTitleAlign:'center',
                     headerRight:()=>(
                         <View
@@ -213,6 +215,25 @@ function HomeStackGroup(){
                         >
                         <TouchableOpacity>
                             <PostText>Post</PostText>
+                        </TouchableOpacity>
+                        </View>
+                    )
+                }}/>
+            <Stack.Screen name='EditProfile'
+                component={EditProfileScreen}
+                options={{
+                    headerTitle:'',
+                    headerTitleAlign:'center',
+                    headerRight:()=>(
+                        <View
+                            style={{ marginRight: 10,
+                                alignContent:'center',
+                                alignItems:'center',
+                                alignContent:'center',
+                            }}
+                        >
+                        <TouchableOpacity>
+                            <PostText>Save</PostText>
                         </TouchableOpacity>
                         </View>
                     )
