@@ -18,7 +18,7 @@ export const Divider = styled.View`
     border-bottom-width: 1px;
     width:92%;
     align-self:center;
-    margin-top: 1px;
+    margin-top: 5px;
 `
 export const InteractionWrapper = styled.View`
     flex-direction:row;

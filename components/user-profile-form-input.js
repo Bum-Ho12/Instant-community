@@ -6,9 +6,10 @@ import { InfoTitle, Divider,UserInfo} from '../styles/profile-edit'
 const UserFormInput = ({title,label, placeholder,...rest}) =>{
     return(
         <View style={styles.container}>
-                <InfoTitle>
-                    {title}
-                </InfoTitle>
+            
+            <InfoTitle>
+                {title}
+            </InfoTitle>
             <TextInput
             style= {styles.inputField}
                 value={label}
