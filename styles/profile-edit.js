@@ -8,45 +8,17 @@ export const Container = styled.View`
     padding-right:5px;
 `
 
-export const UserInfo = styled.View`
-    flex-direction:column;
-    justify-content:flex-start;
-    padding: 5px;
-`;
-
 export const InfoTitle = styled.Text`
-    font-size:14px;
+    font-size:16px;
     font-weight:bold;
 `;
-
-export const InfoEntry = styled.InputField`
-    padding: 10;
-    marginTop: 5;
-    marginBottom: 10;
-    width: 100%;
-    font-size: 16;
-    
-`
-
-export const NameEntry = styled.Text`
-    font-size:12px;
-    color:#666;
-    font-style:italic;
-    margin-left: 10px;
-`
-
-export const AboutText = styled.Text`
-    font-size:14px;
-    padding-left: 15px;
-    padding-right:15px;
-`
 
 export const Divider = styled.View`
     border-bottom-color:#dddddd;
     border-bottom-width: 1px;
     width:92%;
     align-self:center;
-    margin-top: 15px;
+    margin-top: 1px;
 `
 export const InteractionWrapper = styled.View`
     flex-direction:row;

@@ -7,32 +7,42 @@ const EditProfileScreen = () =>{
     const [fname,setFname] = useState()
     const [lname,setLname] = useState()
     const [tagname,setTagname] = useState()
+    const [about, setAbout] = useState()
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
             <Container>
-                <UserInfo>
-                    <UserFormInput
+                <UserFormInput
+                    title={'First Name'}
                     labelValue={fname}
                     placeholder='First Name'
                     onChangedText = {(value) => setFname(value)}
                     autoCapitalize = 'words'
                     autoCorrect = {true}
                     />
-                    <UserFormInput
+                <UserFormInput
+                    title={'Last Name'}
                     labelValue={lname}
                     placeholder='Last Name'
                     onChangedText = {(value) => setLname(value)}
                     autoCapitalize = 'words'
                     autoCorrect = {true}
                     />
-                    <UserFormInput
-                    labelValue={tagname}
+                <UserFormInput
+                    title={'Nick Name'}
+                    labelValue={'@'+ tagname}
                     placeholder='Tag Name'
                     onChangedText = {(value) => setTagname(value)}
                     autoCapitalize = 'none'
                     autoCorrect = {false}
                     />
-                </UserInfo>
+                <UserFormInput
+                    title={'About You'}
+                    labelValue={about}
+                    placeholder='talk about yourself, expertise and achievements'
+                    onChangedText = {(value) => setAbout(value)}
+                    autoCapitalize = 'none'
+                    autoCorrect = {false}
+                    />
             </Container>
         </ScrollView>
     )

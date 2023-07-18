@@ -26,7 +26,7 @@ const UserProfileScreen= ({navigation})=>{
                 <View style={styles.userBtnWrapper}>
                     <TouchableOpacity
                     style={styles.userBtn}
-                    onPress={()=>{}}
+                    onPress={()=>{navigation.navigate('EditProfile')}}
                     >
                         <Text style={styles.userBtnTxt}>Edit</Text>
                     </TouchableOpacity>

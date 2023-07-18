@@ -1,14 +1,14 @@
 import React from 'react'
 import {View,StyleSheet,TextInput} from 'react-native'
 import { windowHeight, windowWidth } from '../utilities/dimensions';
-import { InfoTitle, Divider } from '../styles/profile-edit'
+import { InfoTitle, Divider,UserInfo} from '../styles/profile-edit'
 
-const UserFormInput = ({label, placeholder,...rest}) =>{
+const UserFormInput = ({title,label, placeholder,...rest}) =>{
     return(
         <View style={styles.container}>
-            <InfoTitle>
-                First Name
-            </InfoTitle>
+                <InfoTitle>
+                    {title}
+                </InfoTitle>
             <TextInput
             style= {styles.inputField}
                 value={label}
@@ -26,7 +26,7 @@ export default UserFormInput
 
 const styles = StyleSheet.create({
     container: {
-        alignItems: 'center',
+        alignItems: 'flex-start',
         marginTop:5,
         marginBottom: 10,
         width: '100%',
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff'
     },
     text: {
-        padding: 10,
+        padding: 5,
         flex: 1,
         fontSize: 16,
         color: '#333',
@@ -46,12 +46,12 @@ const styles = StyleSheet.create({
     },
     inputField: {
         padding: 10,
-        marginTop: 5,
-        marginBottom: 10,
+        // marginTop: 5,
+        // marginBottom: 10,
         width: windowWidth/1.5,
         height: windowHeight/15,
         fontSize: 16,
         borderRadius: 8,
-        borderColor: '#ffffff',
+        borderColor: '#fff',
     }
 })
