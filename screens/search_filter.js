@@ -6,13 +6,13 @@ import Posts from '../dataSource/feed-data.js'
 import SearchCard from '../components/search-card';
 
 
-export default function SearchFilterScreen(){
+const SearchFilterScreen=({navigation})=>{
     return (
         <Container>
             <SearchBg>
                 <SearchAlignment>
                 <SearchInputField
-                    placeholder='Search'
+                    placeholder='Search bar'
                     multiline
                     numberOfLines={1}
                 />
@@ -22,7 +22,7 @@ export default function SearchFilterScreen(){
             <ListContainer>
                 <FlatList
                     data = {Posts}
-                    renderItem={({item})=> <SearchCard item={item}/>}
+                    renderItem={({item})=> <SearchCard item={item} navigation={navigation}/>}
                     keyExtractor={item=>item.id}
                     showsVerticalScrollIndicator={false}
                 />
@@ -30,3 +30,5 @@ export default function SearchFilterScreen(){
         </Container>
     )
 }
+
+export default SearchFilterScreen

@@ -1,24 +1,29 @@
 import {React} from 'react'
 import {Ionicons} from '@expo/vector-icons';
 import {Note,UserImg,UserInfo,UserName, UserInfoText, PostTime, PostText, PostImg, InteractionWrapper, Interaction, InteractionText, Divider, PostNickName, UserNameTag} from '../styles/notification-style.js'
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
-const NotificationCard=({item})=>{
+const NotificationCard=({item,navigation})=>{
 
     return(
             <Note title="Local Modules">
-                <UserInfo>
-                    <UserImg source={item.userImg} />
-                    <UserInfoText>
-                        <UserNameTag>
-                            <UserName>
-                                {item.userName}
-                            </UserName>
-                            <PostNickName>@{item.userName}</PostNickName>
-                        </UserNameTag>
-                        <PostTime>{item.postTime}</PostTime><PostTime/>
-                    </UserInfoText>
-                </UserInfo>
+                <TouchableOpacity
+                onPress={()=>{navigation.navigate('Profile')}}
+                >
+                    <UserInfo>
+                        <UserImg source={item.userImg} />
+                        <UserInfoText>
+                            <UserNameTag>
+                                <UserName>
+                                    {item.userName}
+                                </UserName>
+                                <PostNickName>@{item.userName}</PostNickName>
+                            </UserNameTag>
+                            <PostTime>{item.postTime}</PostTime><PostTime/>
+                        </UserInfoText>
+                    </UserInfo>
+                </TouchableOpacity>
                 <PostText>{item.post}</PostText>
             </Note>
     );

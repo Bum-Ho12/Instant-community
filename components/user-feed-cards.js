@@ -7,7 +7,7 @@ import {Tweet,UserImg,UserInfo,UserName,
     Divider, PostNickName, UserNameTag} from '../styles/feedStyles.js'
 
 
-const ListSectionFeedCard=({item, navigation})=>{
+const UserListSectionFeedCard=({item, navigation})=>{
     likeIcon = item.liked?'heart':'heart-outline'
     lickedColor = item.liked?'#2e64e5':'#333'
 
@@ -92,9 +92,12 @@ const ListSectionFeedCard=({item, navigation})=>{
                         <Ionicons name='share-social-outline' size={22} />
                         <InteractionText >{sharedText}</InteractionText>
                     </Interaction>
+                    <Interaction>
+                        <Ionicons name='trash-outline' size={25} />
+                    </Interaction>
                 </InteractionWrapper>
             </Tweet>
     );
 }
 
-export default ListSectionFeedCard
+export default UserListSectionFeedCard

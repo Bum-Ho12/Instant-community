@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar'
 import React from 'react'
 import { SafeAreaView } from 'react-native'
 import {Image,Text,Button,StyleSheet,View} from 'react-native'
@@ -7,6 +8,7 @@ import Onboarding from 'react-native-onboarding-swiper'
 const OnboardingScreen = ({navigation})=>{
     return(
         <SafeAreaView>
+            <StatusBar/>
             <View
             style= {style.container}
             >

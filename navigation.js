@@ -17,15 +17,17 @@ import { PostText } from './styles/addPost-style';
 import OnboardingScreen from './screens/onboardingScreen';
 import LoginScreen from './screens/auth/login';
 import SignUpScreen from './screens/auth/sign-up';
+import ProfileScreen from './screens/profile';
+import UserProfileScreen from './screens/user-profile';
 
 const Tab = createBottomTabNavigator()
 
 function BottomTabs (){
+    const navigation = useNavigation();
     return (
         <Tab.Navigator
             screenOptions={
                 ({route})=>({
-                    headerShown:false,
                     tabBarStyle:{
                         style: {
                         height: 80, // Set the desired height of the tab bar here
@@ -49,11 +51,113 @@ function BottomTabs (){
                     }
             })}
             >
-                <Tab.Screen name='Feed' component={HomeFeed}/>
-                <Tab.Screen name='World' component={WorldFeed}/>
-                <Tab.Screen name='Search' component={SearchFilterScreen}/>
-                <Tab.Screen name='Notifications' component ={NotificationSection}/>
-                <Tab.Screen name='Settings' component={SettingsSection}/>
+                <Tab.Screen name='Feed' component={HomeFeed}
+                    options={{
+                        headerTitleAlign:'center',
+                        headerTitle:'Instant-community',
+                        headerLeft:()=>(
+                            <TouchableOpacity
+                            onPress={()=>navigation.navigate('UserProfile')}
+                            >
+                                <AccountImg
+                                    source={require('./assets/images/person1.jpg')}
+                                />
+                            </TouchableOpacity>
+                        ),
+                        headerRight:()=>(
+                            <View
+                                style={{ marginRight: 10,
+                                    alignContent:'center',
+                                    alignItems:'center',
+                                    alignContent:'center',
+                                }}
+                            >
+                                <TouchableOpacity
+                                    activeOpacity={0.6}
+                                    style={styles.button}
+                                >
+                                    <Ionicons.Button
+                                        name='ios-add-outline'
+                                        color={'#333'}
+                                        backgroundColor={'#2e64e515'}
+                                        style={{
+                                            alignContent:'center',
+                                            alignItems:'center',
+                                        }}
+                                        size={25}
+                                        onPress={()=>navigation.navigate('AddPost')}
+                                    />
+                                </TouchableOpacity>
+                            </View>
+                        )
+                }}
+            />
+                <Tab.Screen name='World' component={WorldFeed}
+                    options={{
+                        headerTitleAlign:'center',
+                        headerTitle:'Instant-community',
+                        headerLeft:()=>(
+                            <TouchableOpacity
+                            onPress={()=>navigation.navigate('UserProfile')}
+                            >
+                                <AccountImg
+                                    source={require('./assets/images/person1.jpg')}
+                                />
+                            </TouchableOpacity>
+                        ),
+                        headerRight:()=>(
+                            <View
+                                style={{ marginRight: 10,
+                                    alignContent:'center',
+                                    alignItems:'center',
+                                    alignContent:'center',
+                                }}
+                            >
+                                <TouchableOpacity
+                                    activeOpacity={0.6}
+                                    style={styles.button}
+                                >
+                                    <Ionicons.Button
+                                        name='ios-add-outline'
+                                        color={'#333'}
+                                        backgroundColor={'#2e64e515'}
+                                        style={{
+                                            alignContent:'center',
+                                            alignItems:'center',
+                                        }}
+                                        size={25}
+                                        onPress={()=>navigation.navigate('AddPost')}
+                                    />
+                                </TouchableOpacity>
+                            </View>
+                        )
+                    }}
+                />
+                <Tab.Screen name='Search'
+                    component={SearchFilterScreen}
+                    options={{headerRight:()=>{},headerTitleAlign:'center',
+                    headerTitle:'',
+                    headerLeft:()=>(
+                        <View style={{ paddingTop:10 }}>
+                            <TouchableOpacity
+                                onPress={()=>navigation.navigate('Profile')}
+                                >
+                                    <AccountImg
+                                        source={require('./assets/images/person1.jpg')}
+                                    />
+                            </TouchableOpacity>
+                        </View>
+                    ),
+                }}
+                />
+                <Tab.Screen name='Notifications'
+                component ={NotificationSection}
+                options={{headerRight:()=>{},headerTitleAlign:'center',}}
+                />
+                <Tab.Screen name='Settings'
+                component={SettingsSection}
+                options={{headerRight:()=>{},headerTitleAlign:'center',}}
+                />
         </Tab.Navigator>
     )
 }
@@ -70,43 +174,29 @@ function HomeStackGroup(){
             options={{
                 headerTitle:''
             }}/>
-            <Stack.Screen name='Login' component={LoginScreen}/>
-            <Stack.Screen name='SignUp' component={SignUpScreen}/>
+            <Stack.Screen name='Login'
+            component={LoginScreen}
+            options={{
+                headerShown: false
+            }}
+            />
+            <Stack.Screen name='SignUp'
+            component={SignUpScreen}
+            />
+            <Stack.Screen name='Profile'
+            component={ProfileScreen}
+            options={{
+                headerTitle:''
+            }}/>
+            <Stack.Screen name='UserProfile'
+            component={UserProfileScreen}
+            options={{
+                headerTitle:''
+            }}/>
             <Stack.Screen name='Instant-community'
             component={BottomTabs}
             options={{
-                headerTitleAlign:'center',
-                headerLeft:()=>(
-                    <AccountImg
-                        source={require('./assets/images/person1.jpg')}
-                    />
-                ),
-                headerRight:()=>(
-                    <View
-                        style={{ marginRight: 10,
-                            alignContent:'center',
-                            alignItems:'center',
-                            alignContent:'center',
-                        }}
-                    >
-                        <TouchableOpacity
-                            activeOpacity={0.6}
-                            style={styles.button}
-                        >
-                            <Ionicons.Button
-                                name='ios-add-outline'
-                                color={'#333'}
-                                backgroundColor={'#2e64e515'}
-                                style={{
-                                    alignContent:'center',
-                                    alignItems:'center',
-                                }}
-                                size={25}
-                                onPress={()=>navigation.navigate('AddPost')}
-                            />
-                        </TouchableOpacity>
-                    </View>
-                )
+                headerShown:false,
             }}
             />
             <Stack.Screen name='AddPost'
@@ -126,8 +216,7 @@ function HomeStackGroup(){
                         </TouchableOpacity>
                         </View>
                     )
-                }}
-            />
+                }}/>
         </Stack.Navigator>
     )
 }

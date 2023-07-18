@@ -2,7 +2,7 @@ import {React} from 'react'
 import {Ionicons} from '@expo/vector-icons';
 import { GeneralText, HeaderText, InteractionWrapper, SettingCardContainer,
     SettingContainer, TextWrapper, UserImg } from '../styles/settings-style'
-import { FlatList } from 'react-native-gesture-handler';
+import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 
 const SettingList=[
     {
@@ -42,27 +42,33 @@ const SettingList=[
     },
 ]
 
-function SettingCard({item}){
+function SettingCard({item,navigation}){
     return(
         <SettingCardContainer>
-            <InteractionWrapper>
-                {item.link!=='none'?<UserImg source={item.link}/>:<Ionicons name={item.icon} size={30} />}
-                <TextWrapper>
-                    <HeaderText>{item.name}</HeaderText>
-                    <GeneralText>{item.definition}</GeneralText>
-                </TextWrapper>
-            </InteractionWrapper>
+            <TouchableOpacity
+            onPress={()=>{item.id=='1'?navigation.navigate('UserProfile'):''}}
+            >
+                <InteractionWrapper>
+                    {item.link!=='none'?<UserImg source={item.link}/>:<Ionicons name={item.icon} size={30} />}
+                    <TextWrapper>
+                        <HeaderText>{item.name}</HeaderText>
+                        <GeneralText>{item.definition}</GeneralText>
+                    </TextWrapper>
+                </InteractionWrapper>
+            </TouchableOpacity>
         </SettingCardContainer>
     )
 }
 
-export default function SettingsSection(){
+const SettingsSection=({navigation})=>{
     return (
     <SettingContainer>
         <FlatList
         data={SettingList}
-        renderItem={({item})=> SettingCard({item})}
+        renderItem={({item})=> SettingCard({item,navigation})}
         />
     </SettingContainer>
     )
 }
+
+export default SettingsSection

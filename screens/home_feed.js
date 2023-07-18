@@ -5,15 +5,18 @@ import ListSectionFeedCard from '../components/feed_card'
 import Posts from '../dataSource/feed-data.js'
 
 
-export default function HomeFeed(){
+const HomeFeed=({navigation})=>{
     return (
         <Container>
             <FlatList
             data = {Posts}
-            renderItem={({item})=> <ListSectionFeedCard item={item}/>}
+            renderItem={({item})=> <ListSectionFeedCard
+            item={item} navigation={navigation}/>}
             keyExtractor={item=>item.id}
             showsVerticalScrollIndicator={false}
             />
         </Container>
     )
 }
+
+export default  HomeFeed

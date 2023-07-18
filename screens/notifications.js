@@ -5,15 +5,17 @@ import {Container} from '../styles/feedStyles.js'
 import Posts from '../dataSource/feed-data.js'
 
 
-export default function NotificationSection(){
+const NotificationSection=({navigation})=>{
     return (
         <Container>
             <FlatList
             data = {Posts}
-            renderItem={({item})=> <NotificationCard item={item}/>}
+            renderItem={({item})=> <NotificationCard item={item} navigation={navigation}/>}
             keyExtractor={item=>item.id}
             showsVerticalScrollIndicator={false}
             />
         </Container>
     )
 }
+
+export default NotificationSection

@@ -4,15 +4,18 @@ import {Container} from '../styles/feedStyles.js'
 import ListSectionFeedCard from '../components/feed_card'
 import Posts from '../dataSource/feed-data.js'
 
-export default function WorldFeed(){
+const WorldFeed=({navigation})=>{
     return (
         <Container>
             <FlatList
             data = {Posts}
-            renderItem={({item})=> <ListSectionFeedCard item={item}/>}
+            renderItem={({item})=> <ListSectionFeedCard
+            item={item} navigation={navigation}/>}
             keyExtractor={item=>item.id}
             showsVerticalScrollIndicator={false}
             />
         </Container>
     )
 }
+
+export default WorldFeed
