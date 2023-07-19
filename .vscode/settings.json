@@ -2,10 +2,12 @@
     "cSpell.words": [
         "chatbox",
         "checkmark",
+        "Croppr",
         "Gojo",
         "Kenpachi",
         "Satoru",
         "videocam",
         "Zaraki"
-    ]
+    ],
+    "java.compile.nullAnalysis.mode": "automatic"
 }

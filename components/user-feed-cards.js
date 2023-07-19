@@ -53,11 +53,15 @@ const UserListSectionFeedCard=({item, navigation})=>{
 
     return(
             <Tweet title="Local Modules">
-                <TouchableOpacity
-                    onPress={()=>{navigation.navigate('Profile')}}
-                >
-                    <UserInfo>
+                <UserInfo>
+                    <TouchableOpacity
+                        onPress={()=>{navigation.navigate('Profile',{userItem: item})}}
+                    >
                         <UserImg source={item.userImg} />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={()=>{navigation.navigate('Profile',{userItem: item})}}
+                    >
                         <UserInfoText>
                             <UserNameTag>
                                 <UserName>
@@ -67,7 +71,15 @@ const UserListSectionFeedCard=({item, navigation})=>{
                             </UserNameTag>
                             <PostTime>{item.postTime}</PostTime><PostTime/>
                         </UserInfoText>
+                    </TouchableOpacity>
                     </UserInfo>
+                <TouchableOpacity onPress={()=>{navigation.navigate('PostView',{item:item})}}>
+                    <PostText>{item.post}</PostText>
+                    {item.postImg!=='none'?<TouchableOpacity
+                    onPress={()=> navigation.navigate('MediaView',{item:item})}
+                    >
+                        <PostImg source={item.postImg}/>
+                    </TouchableOpacity>:<Divider/>}
                 </TouchableOpacity>
                 <TouchableOpacity onPress={()=>{navigation.navigate('PostView',{item:item})}}>
                     <PostText>{item.post}</PostText>

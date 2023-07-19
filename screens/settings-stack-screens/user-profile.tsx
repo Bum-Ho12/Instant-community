@@ -2,6 +2,7 @@ import React from 'react'
 import {Image,Text,View,StyleSheet,SafeAreaView,ScrollView,TouchableOpacity} from 'react-native'
 import Posts from '../../dataSource/feed-data.js'
 import UserListSectionFeedCard from '../../components/user-feed-cards.js'
+import {chooseFromLibrary,photoFromCamera} from '../../components/avatar-component'
 
 const UserProfileScreen= ({navigation})=>{
     return(
@@ -16,8 +17,8 @@ const UserProfileScreen= ({navigation})=>{
             showsVerticalScrollIndicator={false}
             >
                 <Image
-                style={styles.userImg}
-                source={require('../../assets/images/person1.jpg')}
+                    style={styles.userImg}
+                    source={require('../../assets/images/person1.jpg')}
                 />
                 <Text style={styles.userName}> John Doe</Text>
                 <Text style={styles.aboutUser}>
