@@ -1,7 +1,7 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer,useNavigation} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-
+import {styled} from 'styled-components'
 import React from 'react';
 import NotificationSection from './screens/notifications';
 import HomeFeed from './screens/home_feed';
@@ -50,7 +50,10 @@ function BottomTabs (){
                         }else if(route.name ==='Settings'){
                             iconName = focused?'ios-settings':'ios-settings-outline'
                         }
-                        return <Ionicons name={iconName} size = {size} color={color}/>
+                        return <View style={styles.iconContainer}>
+                            <Ionicons name={iconName} size = {size} color={color}/>
+                            {focused?<LowerBar/>:<View></View>}
+                        </View>
                     }
             })}
             >
@@ -58,6 +61,9 @@ function BottomTabs (){
                     options={{
                         headerTitleAlign:'center',
                         headerTitle:'Instant-community',
+                        headerStyle:{
+                            height:70,
+                        },
                         headerLeft:()=>(
                             <TouchableOpacity
                             onPress={()=>navigation.navigate('UserProfile')}
@@ -99,6 +105,9 @@ function BottomTabs (){
                     options={{
                         headerTitleAlign:'center',
                         headerTitle:'Instant-community',
+                        headerStyle:{
+                            height:70,
+                        },
                         headerLeft:()=>(
                             <TouchableOpacity
                             onPress={()=>navigation.navigate('UserProfile')}
@@ -138,7 +147,12 @@ function BottomTabs (){
                 />
                 <Tab.Screen name='Search'
                     component={SearchFilterScreen}
-                    options={{headerRight:()=>{},headerTitleAlign:'center',
+                    options={{
+                        headerRight:()=>{},
+                        headerStyle:{
+                            height:70,
+                        },
+                    headerTitleAlign:'center',
                     headerTitle:'',
                     headerLeft:()=>(
                         <View style={{ paddingTop:10 }}>
@@ -155,11 +169,23 @@ function BottomTabs (){
                 />
                 <Tab.Screen name='Notifications'
                 component ={NotificationSection}
-                options={{headerRight:()=>{},headerTitleAlign:'center',}}
+                options={{
+                    headerRight:()=>{},
+                    headerTitleAlign:'center',
+                    headerStyle:{
+                        height:60,
+                    },
+                }}
                 />
                 <Tab.Screen name='Settings'
                 component={SettingsSection}
-                options={{headerRight:()=>{},headerTitleAlign:'center',}}
+                options={{
+                    headerRight:()=>{},
+                    headerTitleAlign:'center',
+                    headerStyle:{
+                        height:60,
+                    },
+                }}
                 />
         </Tab.Navigator>
     )
@@ -245,6 +271,9 @@ function HomeStackGroup(){
                 options={{
                     headerTitle:'',
                     headerTitleAlign:'center',
+                    headerStyle:{
+                        height:40,
+                    }
                 }}/>
                 <Stack.Screen name='PostView'
                 component={PostViewScreen}
@@ -266,7 +295,24 @@ export default function Navigation(){
 
 
 const styles = StyleSheet.create({
+    iconContainer:{
+        flexDirection: 'column',
+        flex:1,
+        alignContent: 'center',
+        alignItems:'center',
+        padding: 10,
+        backgroundColor: '#fff',
+    },
     button: {
         backgroundColor: '#2e64e515',
     },
 });
+
+const LowerBar = styled.View`
+    border-bottom-color:#2e64e5;
+    border-bottom-width: 4px;
+    border-radius: 3px;
+    width:20px;
+    align-self:center;
+    margin-top: 2px;
+`
