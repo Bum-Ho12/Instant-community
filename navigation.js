@@ -22,6 +22,8 @@ import UserProfileScreen from './screens/settings-stack-screens/user-profile';
 import EditProfileScreen from './screens/settings-stack-screens/edit-profile';
 import DocViewerScreen from './screens/home-stack-screens/document-viewer-screen';
 import PostViewScreen from './screens/home-stack-screens/post-view-screen';
+import PrivacySection from './screens/settings-stack-screens/privacy-screen';
+import NotificationSettingSection from './screens/settings-stack-screens/notification-settings-screen';
 
 const Tab = createBottomTabNavigator()
 
@@ -280,6 +282,24 @@ function HomeStackGroup(){
                 options={{
                     headerTitle:'',
                     headerTitleAlign:'center',
+                }}/>
+                <Stack.Screen name='PrivacyScreen'
+                component={PrivacySection}
+                options={{
+                    headerTitle:'Privacy Settings',
+                    headerTitleAlign:'center',
+                    headerStyle:{
+                        height:60,
+                    }
+                }}/>
+                <Stack.Screen name='NotificationSettingSection'
+                component={NotificationSettingSection}
+                options={{
+                    headerTitle:'Notification Settings',
+                    headerTitleAlign:'center',
+                    headerStyle:{
+                        height:60,
+                    }
                 }}/>
         </Stack.Navigator>
     )

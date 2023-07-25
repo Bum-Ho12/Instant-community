@@ -7,7 +7,7 @@ import MediaBottomSheet from '../../components/media-post-bottom-sheet'
 
 
 const UserProfileScreen= ({navigation})=>{
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(false)
 
     const openBottomSheet = () => {
         setIsVisible(true)
@@ -22,7 +22,6 @@ const UserProfileScreen= ({navigation})=>{
         >
             <View style={styles.container}>
                 <ScrollView
-                    // style={styles.container}
                     contentContainerStyle = {{ justifyContent:'center',
                     alignItems:'center'
                 }}

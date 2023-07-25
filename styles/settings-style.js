@@ -30,7 +30,7 @@ export const InteractionWrapper = styled.View`
 export const TextWrapper = styled.View`
     flex-direction:column;
     justify-content: flex-start;
-    padding: 15px;
+    padding: 10px;
 `
 
 export const UserImg = styled.Image`
@@ -44,13 +44,14 @@ export const UserImg = styled.Image`
 export const IconStart = styled.View`
     padding-right:  20px;
     padding-left: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 5px;
 `
 
 export const HeaderText = styled.Text`
     font-size: 14px;
     font-weight: bold;
+    padding-bottom: 10px;
 `
 
 export const GeneralText = styled.Text`

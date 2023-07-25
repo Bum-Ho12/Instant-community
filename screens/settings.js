@@ -46,7 +46,10 @@ function SettingCard({item,navigation}){
     return(
         <SettingCardContainer>
             <TouchableOpacity
-            onPress={()=>{item.id=='1'?navigation.navigate('UserProfile'):''}}
+            onPress={()=>{item.id=='1'?navigation.navigate('UserProfile'):
+            item.id=='4'?navigation.navigate('PrivacyScreen'):
+            item.id=='5'?navigation.navigate('NotificationSettingSection'):
+            ''}}
             >
                 <InteractionWrapper>
                     {item.link!=='none'?<UserImg source={item.link}/>:<Ionicons name={item.icon} size={30} />}
