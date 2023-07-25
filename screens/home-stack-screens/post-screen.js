@@ -1,9 +1,10 @@
 import React from 'react'
 import { View,Text } from 'react-native'
 import {Ionicons} from '@expo/vector-icons';
-import { AddPostContainer, InputContainer, OtherMediaContainer, PostInputField,MediaContainer } from '../../styles/addPost-style'
+import { AddPostContainer, InputContainer, PostInputField,MediaContainer } from '../../styles/addPost-style'
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
-// import ImagePicker from 'react-native-image-crop-picker';
+import { PhotoFromCamera,ChooseFromLibrary } from '../../utilities/avatar-component';
+
 
 
 const OtherMedia = [
@@ -44,8 +45,8 @@ function MediaPostOptions({item}){
         <MediaContainer>
             <TouchableOpacity
             onPress={item.name=='camera'?
-            photoFromCamera:item.id=='library'?
-            chooseFromLibrary:()=>{}}
+            PhotoFromCamera:item.name=='gallery'?
+            ChooseFromLibrary:()=>{}}
             >
                 <Ionicons.Button
                     name={item.icon}
