@@ -3,7 +3,7 @@ import { View,Text } from 'react-native'
 import {Ionicons} from '@expo/vector-icons';
 import { AddPostContainer, InputContainer, OtherMediaContainer, PostInputField,MediaContainer } from '../../styles/addPost-style'
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
-import ImagePicker from 'react-native-image-crop-picker';
+// import ImagePicker from 'react-native-image-crop-picker';
 
 
 const OtherMedia = [
@@ -40,25 +40,6 @@ const OtherMedia = [
 ]
 
 function MediaPostOptions({item}){
-    const photoFromCamera=()=>{
-        ImagePicker.openCamera({
-            width: 300,
-            height: 400,
-            cropping: true,
-        }).then(image => {
-            console.log(image);
-        });
-    }
-
-    const chooseFromLibrary =()=>{
-        ImagePicker.openPicker({
-            width: 300,
-            height: 400,
-            cropping: true
-        }).then(image => {
-            console.log(image);
-        });
-    }
     return (
         <MediaContainer>
             <TouchableOpacity
