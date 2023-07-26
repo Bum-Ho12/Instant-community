@@ -24,6 +24,8 @@ import DocViewerScreen from './screens/home-stack-screens/document-viewer-screen
 import PostViewScreen from './screens/home-stack-screens/post-view-screen';
 import PrivacySection from './screens/settings-stack-screens/privacy-screen';
 import NotificationSettingSection from './screens/settings-stack-screens/notification-settings-screen';
+import UpdatePasswordScreen from './screens/settings-stack-screens/password-update';
+import RecoveryScreen from './screens/settings-stack-screens/account-recovery-screen';
 
 const Tab = createBottomTabNavigator()
 
@@ -296,6 +298,24 @@ function HomeStackGroup(){
                 component={NotificationSettingSection}
                 options={{
                     headerTitle:'Notification Settings',
+                    headerTitleAlign:'center',
+                    headerStyle:{
+                        height:60,
+                    }
+                }}/>
+                <Stack.Screen name='UpdatePasswordSection'
+                component={UpdatePasswordScreen}
+                options={{
+                    headerTitle:'Update Password',
+                    headerTitleAlign:'center',
+                    headerStyle:{
+                        height:60,
+                    }
+                }}/>
+                <Stack.Screen name='RecoveryScreen'
+                component={RecoveryScreen}
+                options={{
+                    headerTitle:'Recovery Contact',
                     headerTitleAlign:'center',
                     headerStyle:{
                         height:60,

@@ -116,7 +116,6 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
         backgroundColor: '#fff',
-        // padding: 20,
     },
     userImg:{
         height: 150,
@@ -175,7 +174,7 @@ const styles = StyleSheet.create({
     },
     overlay: {
         ...StyleSheet.absoluteFillObject,
-        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Change the color and opacity as desired
-        zIndex: 1, // Higher z-index to stack on top of ScrollView
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        zIndex: 1,
     },
 })

@@ -1,63 +1,112 @@
-import {React} from 'react'
-import {Ionicons} from '@expo/vector-icons';
+import React,{useState} from 'react'
+import { SafeAreaView, StyleSheet, View,TouchableOpacity,ScrollView} from 'react-native'
+import {Ionicons} from '@expo/vector-icons'
 import { GeneralText, HeaderText, InteractionWrapper, SettingCardContainer,
     SettingContainer, TextWrapper} from '../../styles/settings-style'
-import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
+import DeleteBottomSheet from '../../components/account-delete-bottom-sheet'
 
-const PrivacyList=[
-    {
-        id:'1',
-        name: 'Update Password',
-        icon: 'key-outline',
-        definition: 'Change/Update Password',
-    },
-    {
-        id:'2',
-        name: 'Account Recovery',
-        icon: 'file-tray-outline',
-        definition: 'Recovery email or Tel Number',
-    },
-    {
-        id:'3',
-        name: 'Biometric Authentication',
-        icon: 'md-finger-print',
-        definition: 'Enable FingerPrint Authentication',
-    },
-    {
-        id:'4',
-        name: 'Delete Account',
-        icon: 'remove-circle-outline',
-        definition: 'Permanent deletion of account',
-    },
-]
-
-function SettingCard({item,navigation}){
-    return(
-        <SettingCardContainer>
-            <TouchableOpacity
-            onPress={()=>{}}
-            >
-                <InteractionWrapper>
-                    <Ionicons name={item.icon} size={30} />
-                    <TextWrapper>
-                        <HeaderText>{item.name}</HeaderText>
-                        <GeneralText>{item.definition}</GeneralText>
-                    </TextWrapper>
-                </InteractionWrapper>
-            </TouchableOpacity>
-        </SettingCardContainer>
-    )
-}
 
 const PrivacySection=({navigation})=>{
+    const [isVisible, setIsVisible] = useState(false)
+
+    const openBottomSheet = () => {
+        setIsVisible(true)
+    }
+
+    const closeBottomSheet = () => {
+        setIsVisible(false)
+    }
     return (
-    <SettingContainer>
-        <FlatList
-        data={PrivacyList}
-        renderItem={({item})=> SettingCard({item,navigation})}
-        />
-    </SettingContainer>
+    <SafeAreaView
+    style={{ flex:1,backgroundColor:'#fff' }}
+    >
+        <View style={styles.container}>
+            <ScrollView>
+            <SettingCardContainer>
+                <TouchableOpacity
+                onPress={
+                    ()=>navigation.navigate('UpdatePasswordSection')
+                }
+                >
+                    <InteractionWrapper>
+                        <Ionicons name='key-outline' size={30} />
+                        <TextWrapper>
+                            <HeaderText>Update Password</HeaderText>
+                            <GeneralText>Change/Update Password</GeneralText>
+                        </TextWrapper>
+                    </InteractionWrapper>
+                </TouchableOpacity>
+            </SettingCardContainer>
+            <SettingCardContainer>
+                <TouchableOpacity
+                onPress={
+                    ()=>navigation.navigate('RecoveryScreen')
+                }
+                >
+                    <InteractionWrapper>
+                        <Ionicons name='file-tray-outline' size={30} />
+                        <TextWrapper>
+                            <HeaderText>Account Recovery</HeaderText>
+                            <GeneralText>Recovery email or Tel Number</GeneralText>
+                        </TextWrapper>
+                    </InteractionWrapper>
+                </TouchableOpacity>
+            </SettingCardContainer>
+            <SettingCardContainer>
+                <TouchableOpacity
+                onPress={
+                    ()=>{}
+                }
+                >
+                    <InteractionWrapper>
+                        <Ionicons name='md-finger-print' size={30} />
+                        <TextWrapper>
+                            <HeaderText>Biometric Authentication</HeaderText>
+                            <GeneralText>Enable FingerPrint Authentication</GeneralText>
+                        </TextWrapper>
+                    </InteractionWrapper>
+                </TouchableOpacity>
+            </SettingCardContainer>
+            <SettingCardContainer>
+                <TouchableOpacity
+                onPress={
+                    openBottomSheet
+                }
+                >
+                    <InteractionWrapper>
+                        <Ionicons name='remove-circle-outline' size={30} />
+                        <TextWrapper>
+                            <HeaderText>Delete Account</HeaderText>
+                            <GeneralText>Permanent deletion of account</GeneralText>
+                        </TextWrapper>
+                    </InteractionWrapper>
+                </TouchableOpacity>
+            </SettingCardContainer>
+            </ScrollView>
+            {isVisible && (
+                <TouchableOpacity
+                style={styles.overlay}
+                activeOpacity={1}
+                onPress={closeBottomSheet}
+                >
+                    <DeleteBottomSheet onClose={closeBottomSheet} />
+                </TouchableOpacity>
+            )}
+        </View>
+    </SafeAreaView>
     )
 }
 
 export default PrivacySection
+
+const styles =StyleSheet.create({
+    container:{
+        flex: 1,
+        backgroundColor: '#fff',
+    },
+    overlay: {
+        ...StyleSheet.absoluteFillObject,
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        zIndex: 1,
+    },
+})

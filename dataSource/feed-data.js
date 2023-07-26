@@ -14,7 +14,8 @@ const Posts = [
         shared:true,
         shares:'40',
         docViewed: false,
-        docViews: '20'
+        docViews: '20',
+        video: 'none'
     },
     {
         id:'2',
@@ -31,7 +32,8 @@ const Posts = [
         shared:false,
         shares:'0',
         docViewed: true,
-        docViews: '20'
+        docViews: '20',
+        video: 'none'
     },
     {
         id:'3',
@@ -48,7 +50,8 @@ const Posts = [
         shared:true,
         shares:'2',
         docViewed: true,
-        docViews: '2'
+        docViews: '2',
+        video: 'none'
     },
     {
         id:'4',
@@ -65,7 +68,8 @@ const Posts = [
         shared:false,
         shares:'10',
         docViewed: false,
-        docViews: '10'
+        docViews: '10',
+        video: 'none'
     },
     {
         id:'5',
@@ -82,7 +86,25 @@ const Posts = [
         shared:true,
         shares:'40',
         docViewed: true,
-        docViews: '20'
+        docViews: '20',
+    },
+    {
+        id:'6',
+        userName: 'Gojo Satoru',
+        userImg: require('../assets/images/person3.jpg'),
+        postTime: '4 mins ago',
+        post:'New Trend.',
+        postImg: 'none',
+        liked:false,
+        likes:'123',
+        comments:'78',
+        saved:false,
+        saves:'23',
+        shared:true,
+        shares:'40',
+        docViewed: true,
+        docViews: '20',
+        video: 'https://www.youtube.com/watch?v=1amVwnbuObo'
     },
 ]
 export default Posts;

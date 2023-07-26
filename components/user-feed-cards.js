@@ -5,6 +5,7 @@ import {Tweet,UserImg,UserInfo,UserName,
     UserInfoText, PostTime, PostText, PostImg,
     InteractionWrapper, Interaction, InteractionText,
     Divider, PostNickName, UserNameTag} from '../styles/feedStyles.js'
+import VideoPlayer from './video-player.js';
 
 
 const UserListSectionFeedCard=({item, navigation})=>{
@@ -79,6 +80,11 @@ const UserListSectionFeedCard=({item, navigation})=>{
                     onPress={()=> navigation.navigate('MediaView',{item:item})}
                     >
                         <PostImg source={item.postImg}/>
+                    </TouchableOpacity>:<Divider/>}
+                    {item.video!=='none'?<TouchableOpacity
+                    onPress={()=> navigation.navigate('MediaView',{item:item})}
+                    >
+                        <VideoPlayer url={item.video}/>
                     </TouchableOpacity>:<Divider/>}
                 </TouchableOpacity>
                 <InteractionWrapper>

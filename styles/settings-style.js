@@ -25,7 +25,9 @@ export const Divider = styled.View`
 export const InteractionWrapper = styled.View`
     flex-direction:row;
     justify-content: flex-start;
-    padding: 15px;
+    padding-vertical: 5px;
+    padding-right: 15px;
+    padding-left: 5px;
 `
 export const TextWrapper = styled.View`
     flex-direction:column;
