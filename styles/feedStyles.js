@@ -3,7 +3,7 @@ import {styled} from 'styled-components'
 export const Container = styled.View`
     flex:1;
     align-items:center;
-    background-color: #fff;
+    background-color: #ffffff;
     padding-left: 15px;
     padding-right:5px;
 `
